@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<!--
+  牛奶冰室 Milk Café 台灣首店｜Coming Soon 正式候選稿 v4（2026-11-19：依 design-desktop／design-mobile 還原）
+  ── 狀態變數（main.js）──
+  HERO_STATUS：大標紅字，開幕前 "即將"，開幕改 "正式"
+  IS_OPEN / BOOKING_URL：開幕前「追蹤開幕消息」→ IG；開幕後「線上訂位」→ BOOKING_URL
+  OPENING_DATE：開幕倒數
+  ── 【待確認】項目清單 ──
+  1. 開幕日期（main.js OPENING_DATE），未設定時顯示「開幕日期即將公布」
+  2. 營業時間：開幕後補進頁面與 JSON-LD（openingHours）
+  3. 門市電話：開幕後補進頁面與 JSON-LD（telephone）
+  4. Facebook 粉專網址（圖示目前停用）
+  5. LINE 官方帳號網址（圖示目前停用）
+  6. 對外信箱：urban6699@milkcafetw.com 為暫定
+  7. logo 與設計稿插畫的使用授權（由偉哥確認）；Hero、輪播食物、頁尾線稿為依設計稿風格重繪的插畫
+  8. 「最新活動」「線上訂位」「外帶自取」入口：開幕後開放，屆時補連結
+  ✔ 已確認：地址 高雄市左營區裕誠路230號（偉哥確認，2026-11-19）
+  ✔ 已確認：招牌口號（菠蘿包、厚多士）與品牌介紹文案，客戶同意使用（2026-11-19）
+  ✔ 已移除：圍籬渲染圖（僅供風格參考）、會員圖示（尚無會員系統）
+-->
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>牛奶冰室 Milk Café｜台灣首店即將登場・高雄</title>
+<meta name="description" content="香港人氣冰室「牛奶冰室 Milk Café」台灣首店即將在高雄左營裕誠路登場！招牌西多士、冰火菠蘿包、港式絲襪奶茶，來自香港的經典好味道，追蹤 IG 搶先收開幕消息。">
+<link rel="canonical" href="https://milkcafetw.com/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:site_name" content="牛奶冰室 Milk Café Taiwan">
+<meta property="og:title" content="牛奶冰室 Milk Café｜台灣首店即將登場・高雄">
+<meta property="og:description" content="來自香港的經典好味道！牛奶冰室台灣首店即將在高雄登場，追蹤 IG 搶先收開幕消息。">
+<meta property="og:url" content="https://milkcafetw.com/">
+<meta property="og:image" content="https://milkcafetw.com/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="牛奶冰室 Milk Café：手繪港景插畫，機長乳牛、毛帽乳牛、厚多士與奶茶，台灣首店即將登場">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#fefdf8">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Huninn&family=Noto+Sans+TC:wght@500;700;900&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" type="image/webp" href="assets/hero-mobile-1x.webp" imagesrcset="assets/hero-mobile-1x.webp 800w, assets/hero-mobile-2x.webp 1600w" imagesizes="100vw" media="(max-width:768px)">
+<link rel="preload" as="image" type="image/webp" href="assets/hero-desktop-1x.webp" imagesrcset="assets/hero-desktop-1x.webp 1440w, assets/hero-desktop-2x.webp 2880w" imagesizes="100vw" media="(min-width:769px)">
+<link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "牛奶冰室 Milk Café 台灣首店",
+  "url": "https://milkcafetw.com/",
+  "logo": "https://milkcafetw.com/assets/logo.png",
+  "image": "https://milkcafetw.com/assets/og-image.jpg",
+  "servesCuisine": ["港式", "冰室", "茶餐廳"],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "裕誠路230號",
+    "addressLocality": "高雄市",
+    "addressRegion": "左營區",
+    "addressCountry": "TW"
+  },
+  "hasMap": "https://www.google.com/maps/search/?api=1&query=%E9%AB%98%E9%9B%84%E5%B8%82%E5%B7%A6%E7%87%9F%E5%8D%80%E8%A3%95%E8%AA%A0%E8%B7%AF230%E8%99%9F",
+  "sameAs": ["https://www.instagram.com/milkcafetw/"]
+}
+</script>
+</head>
+<body>
+<header class="nav">
+  <button class="menu-btn" aria-expanded="false" aria-controls="nav-panel" aria-label="開啟選單"><span></span><span></span><span></span></button>
+  <a href="#top" class="nav-brand" aria-label="牛奶冰室 Milk Café 回到首頁">
+    <picture><source srcset="assets/logo.webp" type="image/webp"><img src="assets/logo.png" alt="牛奶冰室 Milk Café logo" width="900" height="351"></picture>
+    <span class="nav-tag">台灣牛奶冰室</span>
+  </a>
+  <div class="nav-panel" id="nav-panel">
+    <nav class="nav-links" aria-label="頁內導覽">
+      <a href="#top" class="active">首頁</a>
+      <a href="#about">關於我們</a>
+      <a href="#menu">經典餐點</a>
+      <a href="#store">門市資訊</a>
+    </nav>
+    <div class="nav-social">
+      <a href="https://www.instagram.com/milkcafetw/" target="_blank" rel="noopener" aria-label="Instagram @milkcafetw">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="17.3" cy="6.7" r="1.3" fill="currentColor"/></svg></a>
+      <span class="soc-off" title="Facebook 粉專待確認" role="img" aria-label="Facebook（待確認）">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10.5" fill="currentColor"/><path d="M13.2 19.5v-6h2l.3-2.3h-2.3V9.8c0-.7.2-1.1 1.1-1.1h1.3V6.6c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.5H8.6v2.3h2v6z" fill="#fff"/></svg></span>
+      <span class="soc-off" title="LINE 官方帳號待確認" role="img" aria-label="LINE（待確認）">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10.5" fill="currentColor"/><path d="M12 6.6c-3.4 0-6.1 2.2-6.1 4.9 0 2.4 2.1 4.4 5 4.8.2 0 .5.1.5.3.1.2 0 .4 0 .6l-.1.5c0 .2-.1.6.5.3.6-.3 3.1-1.8 4.2-3.1.8-.9 1.1-1.7 1.1-2.6.1-2.6-2.7-4.7-5.1-5.7z" fill="#fff"/></svg></span>
+    </div>
+  </div>
+  <a class="btn btn-yellow nav-cta js-booking" href="https://www.instagram.com/milkcafetw/" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 2.8v4.4M16 2.8v4.4M3.5 10h17" stroke="currentColor" stroke-width="2"/><path d="M8.5 14.5l2.3 2.2 4.7-4.5" fill="none" stroke="currentColor" stroke-width="2"/></svg><span class="js-booking-label">追蹤開幕消息</span></a>
+</header>
+
+<main id="top">
+<section class="hero" aria-labelledby="hero-title">
+  <picture class="hero-bg">
+    <source media="(max-width:768px)" type="image/webp" srcset="assets/hero-mobile-1x.webp 800w, assets/hero-mobile-2x.webp 1600w" sizes="100vw">
+    <source type="image/webp" srcset="assets/hero-desktop-1x.webp 1440w, assets/hero-desktop-2x.webp 2880w" sizes="100vw">
+    <img src="assets/hero-desktop-1x.webp" alt="手繪港景插畫：機長乳牛開著飛機舉起港式奶茶，維港天星小輪與台北 101，戴毛帽的乳牛喝奶茶，旁邊是厚多士、菠蘿油與奶茶" width="1440" height="810" fetchpriority="high">
+  </picture>
+  <span class="spot spot-1" aria-hidden="true"></span><span class="spot spot-2" aria-hidden="true"></span><span class="spot spot-3" aria-hidden="true"></span>
+  <p class="m-tag">台灣牛奶冰室</p>
+  <p class="hero-note">經典港式 × 台灣風味<br>牛奶冰室來台灣了！</p>
+  <div class="stamp" aria-hidden="true"><b>高雄</b><small>KAOHSIUNG</small><b>首店</b></div>
+  <div class="hero-copy">
+    <h1 id="hero-title"><span class="h1-a">台灣首店</span><span class="h1-b"><span id="hero-status">即將</span>登場！</span></h1>
+    <p class="hero-sub"><span class="flag" aria-hidden="true">🇭🇰</span>來自香港的經典好味道</p>
+    <p class="hero-cd" aria-live="polite"><span class="cd-tbd" id="cd-tbd">開幕日期即將公布</span><span class="cd-run" id="cd-run" hidden>開幕倒數 <b id="cd-d">0</b> 天 <b id="cd-h">00</b>:<b id="cd-m">00</b>:<b id="cd-s">00</b></span></p>
+  </div>
+
+  <nav class="entries" aria-label="快速入口">
+    <a class="entry" href="#menu"><span class="ico"><img src="assets/icon-menu-1x.webp" srcset="assets/icon-menu-1x.webp 1x, assets/icon-menu-2x.webp 2x" alt="" width="80" height="80"></span><b>經典餐點</b><small>港式經典・搶先看</small></a>
+    <div class="entry is-off" aria-disabled="true"><span class="ico"><img src="assets/icon-news-1x.webp" srcset="assets/icon-news-1x.webp 1x, assets/icon-news-2x.webp 2x" alt="" width="80" height="80"></span><b>最新活動</b><small class="tbd">開幕後開放</small></div>
+    <a class="entry" href="#store"><span class="ico"><img src="assets/icon-store-1x.webp" srcset="assets/icon-store-1x.webp 1x, assets/icon-store-2x.webp 2x" alt="" width="80" height="80"></span><b>門市資訊</b><small>高雄首店・裕誠路230號</small></a>
+    <div class="entry is-off d-only" aria-disabled="true"><span class="ico"><img src="assets/icon-booking-1x.webp" srcset="assets/icon-booking-1x.webp 1x, assets/icon-booking-2x.webp 2x" alt="" width="80" height="80"></span><b>線上訂位</b><small class="tbd">開幕後開放</small></div>
+    <div class="entry is-off" aria-disabled="true"><span class="ico"><img src="assets/icon-takeaway-1x.webp" srcset="assets/icon-takeaway-1x.webp 1x, assets/icon-takeaway-2x.webp 2x" alt="" width="80" height="80"></span><b>外帶自取</b><small class="tbd">開幕後開放</small></div>
+  </nav>
+  <a class="scroll-down" href="#menu" aria-label="往下看經典港式必吃"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+</section>
+
+<section class="section must" id="menu" aria-labelledby="must-title">
+  <h2 class="brush" id="must-title">經典港式必吃</h2>
+  <div class="carousel" data-carousel>
+    <button class="car-btn prev" type="button" aria-label="上一個"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <div class="car-track" tabindex="0" aria-label="經典港式必吃輪播，可左右滑動">
+      <article class="car-card">
+        <picture><source type="image/webp" srcset="assets/food-toast-1x.webp 400w, assets/food-toast-2x.webp 800w" sizes="(min-width:769px) 340px, 46vw"><img src="assets/food-toast-1x.webp" alt="手繪插畫：兩片港式西多士疊在盤上，牛油融化、糖漿流下" width="400" height="400" loading="lazy"></picture>
+        <h3>招牌西多士</h3><p>厚切金黃，香港熱賣。</p>
+      </article>
+      <article class="car-card">
+        <picture><source type="image/webp" srcset="assets/food-bolo-1x.webp 400w, assets/food-bolo-2x.webp 800w" sizes="(min-width:769px) 340px, 46vw"><img src="assets/food-bolo-1x.webp" alt="手繪插畫：酥皮菠蘿包夾著一大片冰牛油" width="400" height="400" loading="lazy"></picture>
+        <h3>冰火菠蘿包</h3><p>一口咬落，芝士拉到好長！</p>
+      </article>
+      <article class="car-card">
+        <picture><source type="image/webp" srcset="assets/food-milktea-1x.webp 400w, assets/food-milktea-2x.webp 800w" sizes="(min-width:769px) 340px, 46vw"><img src="assets/food-milktea-1x.webp" alt="手繪插畫：白瓷杯裝著冒熱氣的港式絲襪奶茶" width="400" height="400" loading="lazy"></picture>
+        <h3>港式絲襪奶茶</h3><p>一杯奶茶 啱走煩惱！</p>
+      </article>
+    </div>
+    <button class="car-btn next" type="button" aria-label="下一個"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <div class="car-dots" role="tablist" aria-label="選擇餐點"></div>
+  </div>
+</section>
+
+<section class="slogan-band" aria-label="品牌標語">
+    <p class="slogan">香港好味道，台灣新日常！</p>
+    <picture><source type="image/webp" srcset="assets/footer-strip-1x.webp 1440w, assets/footer-strip-2x.webp 2880w" sizes="100vw"><img src="assets/footer-strip-1x.webp" alt="" width="1440" height="264" loading="lazy"></picture>
+  </section>
+
+<section class="section quote" id="about">
+  <div class="wrap quote-inner">
+    <picture><source srcset="assets/logo-white.webp" type="image/webp"><img class="quote-logo" src="assets/logo-white.png" alt="牛奶冰室 Milk Café 反白 logo" width="900" height="351" loading="lazy"></picture>
+    <div>
+      <blockquote><p>香港味道<br>每天都有小確幸</p></blockquote>
+      <p class="quote-sub">把香港冰室的奶茶、菠蘿包和厚多士帶來台灣，第一站就在高雄。</p>
+      <ul class="chips"><li>一杯奶茶 啱走煩惱！</li><li class="hand">Good Food Good Mood!</li><li>台灣我來了！</li></ul>
+    </div>
+  </div>
+</section>
+
+<section class="section store" id="store">
+  <div class="wrap store-grid">
+    <div class="store-info">
+      <p class="kicker">Our First Store</p>
+      <h2>門市資訊</h2>
+      <dl>
+        <dt>門市</dt><dd>牛奶冰室 高雄・台灣首店</dd>
+        <dt>地址</dt><dd>高雄市左營區裕誠路230號</dd>
+        <dt>開幕</dt><dd><span class="tbd">待確認</span></dd>
+        <dt>營業時間</dt><dd><span class="tbd">待確認</span></dd>
+        <dt>電話</dt><dd><span class="tbd">待確認</span></dd>
+      </dl>
+      <a class="btn btn-red" id="map-link" href="https://www.google.com/maps/search/?api=1&query=%E9%AB%98%E9%9B%84%E5%B8%82%E5%B7%A6%E7%87%9F%E5%8D%80%E8%A3%95%E8%AA%A0%E8%B7%AF230%E8%99%9F" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 10-14 0c0 5.8 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="10" r="2.6" fill="currentColor"/></svg>Google 地圖導航</a>
+    </div>
+    <div class="map">
+      <p class="map-ph">Google 地圖載入中…<br>高雄市左營區裕誠路230號</p>
+      <iframe title="牛奶冰室高雄首店位置：高雄市左營區裕誠路230號" src="https://www.google.com/maps?q=%E9%AB%98%E9%9B%84%E5%B8%82%E5%B7%A6%E7%87%9F%E5%8D%80%E8%A3%95%E8%AA%A0%E8%B7%AF230%E8%99%9F&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<section class="section follow" id="follow">
+  <div class="wrap center">
+    <p class="kicker">Follow Us</p>
+    <h2>搶先收開幕消息</h2>
+    <p class="lead">開幕日期、試營運和開幕優惠，都會第一時間在 IG 公布。</p>
+    <a class="btn btn-red btn-xl" href="https://www.instagram.com/milkcafetw/" target="_blank" rel="noopener">追蹤 IG @milkcafetw</a>
+    <ul class="socials">
+      <li><a href="https://www.instagram.com/milkcafetw/" target="_blank" rel="noopener">Instagram</a></li>
+      <li><span>Facebook</span> <span class="tbd">待確認</span></li>
+      <li><span>LINE</span> <span class="tbd">待確認</span></li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="foot">
+    <picture><source srcset="assets/logo-white.webp" type="image/webp"><img src="assets/logo-white.png" alt="牛奶冰室 Milk Café" width="900" height="351" loading="lazy"></picture>
+    <p class="foot-links"><a href="https://www.instagram.com/milkcafetw/" target="_blank" rel="noopener">Instagram @milkcafetw</a></p>
+    <p><a href="mailto:urban6699@milkcafetw.com">urban6699@milkcafetw.com</a> <span class="tbd tbd-dark">暫定</span></p>
+    <p class="copy">© <span id="yr">2026</span> 牛奶冰室 Milk Café Taiwan</p>
+  </div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>
